@@ -1,0 +1,41 @@
+/******************************************************************************
+ * Copyright (c) 2012 Massachusetts Institute of Technology
+ * All rights reserved.
+ * 
+ * This program and the accompanying materials are made available under the 
+ * terms of the JVerbnet license which accompanies this distribution. 
+ * Please check the attached license for more details.
+ *
+ * To communicate praise, suggestions, constructive criticism, or feature
+ * requests, write:
+ *
+ * email: markaf@alum.mit.edu
+ * post: 32 Vassar St., Room 32-258, Cambridge, MA 02139 USA
+ * web: http://projects.csail.mit.edu/jverbnet
+ *******************************************************************************/
+
+Changelog for JVerbnet:
+
+Ver     : Release Date  : Changes
+=================================
+1.2.0   : 30 Aug 2012   : 1. Added ISyntaxArgDescBuilder and SyntaxArgDescBuilder
+                          2. Adjusted names of methods in ISyntaxDesc and SyntaxDesc
+                          3. Added static toString(X) methods on PredicateDesc and SemanticArgDesc 
+---------------------------------
+1.1.0   : 24 Aug 2012   : 1. Added IVerbIndex.setVersion(IVersion); added @throws specification to IVerbIndex.getVersion
+                          2. Added Version.regex and WordnetKey.regex fields 
+                          3. Added checks for LinkedHashSet and LinkedHashMap in the reallocation strategies
+                          4. Fixed Bug #001
+---------------------------------
+1.0.0   : 17 Aug 2012   : 1. Initial release
+---------------------------------
+
+Bug Reports
+ID  : Priority : Reported    : Fixed in Ver : Description
+-------------------------------------------------------
+001 : High     : 24 Aug 2012 : 1.1.0        : VerbIndex does not parse non-File URL
+
+Features planned for future releases:
+ID  : ETA      : Requested   : Added in Ver : Description
+-------------------------------------------------------
+None

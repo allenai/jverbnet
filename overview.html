@@ -1,0 +1,64 @@
+<html>
+<head></head>
+<body>
+JVerbnet is a Java library for interfacing with the University of Colorado's Verbnet data.  
+It features API calls to retrieve verb classes by their id numbers, associated wordnet keys or propbank groupings.
+The library includes no GUI elements.
+<p>
+JVerbnet is compatible with both Verbnet 3.1 and 3.2.  
+The Verbnet data itself may be downloaded separately from the Verbnet site at <a href="http://verbs.colorado.edu/~mpalmer/projects/verbnet.html">http://verbs.colorado.edu/~mpalmer/projects/verbnet.html</a>.
+<p>
+JVerbnet is made freely available, and licensed for use for all purposes, as long as proper acknowledgment is made.  
+Details can be found in the license, which is included in the distribution.
+<p>
+The entry point for accessing dictionary data is the {@link edu.mit.jverbnet.index.IVerbIndex} interface.  
+In the simplest case, where you are using Verbnet with the data files on the same filesystem as your Java program, 
+you can instantiate a {@link edu.mit.jverbnet.index.VerbIndex} object with a single argument, a {@code URL} or {@code File} object 
+that points to the directory where the Verbnet data files are located.
+<p>
+An example of this can be found below, in the form of a Java method {@code testIndex()}. 
+In the method, the first block (lines 4-5) deals  with constructing a {@code URL} object that points to the Verbnet data files.  
+This path will probably be different on your system depending on where your Verbnet files are located.  
+The second block of code (8-9), constructs an instance of the default VerbIndex object, and opens it by calling the {@code open()} method.  
+The final block (12-21) demonstrates searching the index for a particular verb and printing out some information.
+The final numbered block of code shows the console output of the method.
+<p>
+Sample code:
+<pre>
+1 public void testIndex() throws Exception {
+2	
+3   // make a url pointing to the Verbnet data
+4   String pathToVerbnet = "/path/to/your/verbnet/directory/";
+5   URL url = new URL("file", null, pathToVerbnet);
+6	
+7   // construct the index and open it
+8   IVerbIndex index = new VerbIndex(url);
+9   index.open();
+10
+11   // look up a verb class and print out some info
+12   IVerbClass verb = index.getRootVerb("hit-18.1");
+13   IMember member = verb.getMembers().get(0);
+14   Set<IWordnetKey> keys = member.getWordnetTypes().keySet();
+15   IFrame frame = verb.getFrames().get(0);
+16   FrameType type = frame.getPrimaryType();
+17   String example = frame.getExamples().get(0);
+18   System.out.println("id: " + verb.getID());
+19   System.out.println("first wordnet keys: " + keys);
+20   System.out.println("first frame type: " + type.getID());
+21   System.out.println("first example: " + example);
+22	
+23 }
+</pre>
+
+Output (for Verbnet 3.2)
+<pre>
+1 id: hit-18.1
+2 first wordnet keys: [bang%2:35:00, bang%2:35:01]
+3 first frame type: NP V NP
+4 first example: Paula hit the ball.
+</pre>
+
+For more information, see the User's Guide included with the distribution.
+
+</body>
+</html>
