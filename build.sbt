@@ -30,3 +30,5 @@ pomExtra :=
         <email>dev-role@allenai.org</email>
       </developer>
     </developers>
+
+dependencyOverrides += "org.apache.commons" % "commons-compress" % "1.7"
