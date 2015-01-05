@@ -1,5 +1,9 @@
 name := "JVerbNet"
 
+// Since this is a Java project, we don't need the scala version _2.10 or _2.11
+// suffix on our package name.
+crossPaths := false
+
 organization := "edu.mit"
 
 addSbtPlugin("org.allenai.plugins" % "allenai-sbt-plugins" % "2014.11.25-0")
@@ -32,3 +36,7 @@ pomExtra :=
     </developers>
 
 dependencyOverrides += "org.apache.commons" % "commons-compress" % "1.7"
+
+version := "1.2.0"
+
+PublishTo.sonatype
