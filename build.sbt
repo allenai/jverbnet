@@ -33,6 +33,6 @@ pomExtra :=
 
 dependencyOverrides += "org.apache.commons" % "commons-compress" % "1.7"
 
-version := "1.2.0"
+version := "1.2.0.1"
 
 PublishTo.sonatype
